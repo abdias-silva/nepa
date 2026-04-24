@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Biblioteca Digital do NEPA — Explore nossa coleção de artigos, livros, atlas e pesquisas desenvolvidas pelo Núcleo de Estudos e Pesquisas Ambientais da UFMA." />
+  <title>Biblioteca Digital | NEPA — UFMA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="header" id="siteHeader">
+    <div class="header-container">
+      <a href="index.html" class="logo" aria-label="Página inicial do NEPA">
+        <img src="./img/NOVA_LOGO_NEPA.png" alt="Logo NEPA"
+          onerror="this.src='https://placehold.co/130x42/607537/FFFFFF?text=NEPA';" />
+      </a>
+      <nav class="navbar" id="navbar" aria-label="Navegação principal">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">Sobre</a>
+        <a href="biblioteca.html" class="active-link">Biblioteca</a>
+        <a href="pesquisas.html">Pesquisas</a>
+        <a href="membros.html">Membros</a>
+        <a href="index.html#eventos">Eventos</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Alternar tema">
+          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+          </svg>
+          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="display:none;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+        </button>
+        <button class="icon-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="navbar">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO DA BIBLIOTECA -->
+    <div class="biblioteca-hero">
+      <div class="biblioteca-hero-inner">
+        <span class="section-label">Acervo científico</span>
+        <h1 class="section-title">Biblioteca <span style="color:var(--verde-claro)">Digital</span></h1>
+        <p>Explore nossa coleção de artigos, livros, atlas e pesquisas desenvolvidas pelo NEPA ao longo de mais de 15 anos de atividade científica e extensionista.</p>
+      </div>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="biblioteca-main">
+
+      <!-- CONTROLES DE FILTRO E BUSCA -->
+      <div class="biblioteca-controls" role="search" aria-label="Filtrar publicações">
+        <div class="controls-row">
+          <!-- Filtros por tipo -->
+          <div class="filter-buttons" role="group" aria-label="Filtrar por tipo">
+            <button class="btn-filter active" data-filter="todos">Todos</button>
+            <button class="btn-filter" data-filter="revista">📰 Revista</button>
+            <button class="btn-filter" data-filter="artigo">📄 Artigo</button>
+            <button class="btn-filter" data-filter="livro">📚 Livro</button>
+            <button class="btn-filter" data-filter="anais">📋 Anais</button>
+            <button class="btn-filter" data-filter="monografia">🎓 Monografia</button>
+            <button class="btn-filter" data-filter="atlas">🗺️ Atlas</button>
+          </div>
+
+          <!-- Busca -->
+          <div class="search-wrap">
+            <span class="search-icon-inner" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+              </svg>
+            </span>
+            <input type="search" id="search-input" placeholder="Buscar por título, autor ou palavra-chave..."
+              aria-label="Buscar publicações" autocomplete="off" />
+          </div>
+        </div>
+
+        <div class="controls-row">
+          <!-- Ordenação -->
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+            <span style="font-size:1.35rem;font-weight:600;color:var(--cinza-claro);">Ordenar por:</span>
+            <select class="sort-select" id="sort-select" aria-label="Ordenar publicações">
+              <option value="recentes">Mais recentes</option>
+              <option value="antigos">Mais antigos</option>
+              <option value="az">Título (A–Z)</option>
+              <option value="za">Título (Z–A)</option>
+            </select>
+          </div>
+
+          <!-- Contador de resultados -->
+          <div class="results-count" id="results-count" aria-live="polite" aria-atomic="true">
+            Carregando...
+          </div>
+        </div>
+      </div>
+
+      <!-- GRID DE PUBLICAÇÕES -->
+      <div class="biblioteca-grid" id="publications-list" aria-label="Lista de publicações">
+        <div class="loading-state">
+          <div class="loading-spinner"></div>
+          <p>Carregando a biblioteca...</p>
+        </div>
+      </div>
+
+      <!-- CARREGAR MAIS -->
+      <div class="load-more-btn-wrap" id="load-more-wrap" style="display:none;">
+        <button class="btn btn-outline" id="load-more-btn">
+          Carregar mais publicações
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="footer-section" aria-label="Rodapé">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="./img/NOVA_LOGO_NEPA.png" alt="Logo NEPA"
+          onerror="this.src='https://placehold.co/120x38/607537/FFFFFF?text=NEPA';" loading="lazy" />
+        <p>Núcleo de Estudos e Pesquisas Ambientais — Universidade Federal do Maranhão.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Página inicial</a></li>
+          <li><a href="index.html#about">Sobre o NEPA</a></li>
+          <li><a href="biblioteca.html">Biblioteca digital</a></li>
+          <li><a href="index.html#areas-pesquisa">Áreas de pesquisa</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <div class="footer-contact-item">
+          <span>📍</span>
+          <p>Av. dos Portugueses, 1966 — Vila Bacanga, São Luís, MA</p>
+        </div>
+        <div class="footer-contact-item">
+          <span>✉️</span>
+          <a href="mailto:contato.nepa@ufma.br">contato.nepa@ufma.br</a>
+        </div>
+      </div>
+      <div class="footer-map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.035579462823!2d-44.3079216!3d-2.5412499999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f68f5c3e884175%3A0x7d73934f71a41f6e!2sUniversidade%20Federal%20do%20Maranh%C3%A3o!5e0!3m2!1spt-BR!2sbr!4v1729392510165!5m2!1spt-BR!2sbr"
+          title="Localização UFMA" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 NEPA — Núcleo de Estudos e Pesquisas Ambientais · UFMA. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+
+  <script>
+    // ============================================================
+    // TEMA
+    // ============================================================
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const iconSun  = document.getElementById('iconSun');
+    const iconMoon = document.getElementById('iconMoon');
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('nepa-theme', t);
+      iconSun.style.display  = t === 'dark' ? 'none' : 'block';
+      iconMoon.style.display = t === 'dark' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('nepa-theme') || 'light');
+    themeToggle.addEventListener('click', () => {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    // ============================================================
+    // MENU / HEADER
+    // ============================================================
+    const menuBtn = document.getElementById('menu-btn');
+    const navbar  = document.getElementById('navbar');
+    menuBtn.addEventListener('click', () => {
+      const open = navbar.classList.toggle('active');
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+
+    const header = document.getElementById('siteHeader');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const st = window.scrollY;
+      header.classList.toggle('header--hidden', st > lastScroll && st > 100);
+      header.classList.toggle('scrolled', st > 60);
+      if (navbar.classList.contains('active')) navbar.classList.remove('active');
+      lastScroll = st <= 0 ? 0 : st;
+    }, { passive: true });
+
+    // ============================================================
+    // BACK TO TOP
+    // ============================================================
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ============================================================
+    // BIBLIOTECA
+    // ============================================================
+    const ITEMS_PER_PAGE = 9;
+
+    const PUB_ICONS = {
+      artigo: '📄', livro: '📚', revista: '📰', anais: '📋',
+      monografia: '🎓', atlas: '🗺️'
+    };
+    function getPubIcon(tipo) {
+      return PUB_ICONS[(tipo || '').toLowerCase()] || '🔬';
+    }
+
+    let allPublications = [];
+    let visibleCount    = ITEMS_PER_PAGE;
+
+    async function loadFromExcel() {
+      try {
+        const resp = await fetch('database.xlsx');
+        if (!resp.ok) throw new Error('database.xlsx não encontrado');
+        const buf = await resp.arrayBuffer();
+        const wb  = XLSX.read(buf, { type: 'buffer' });
+        const ws  = wb.Sheets[wb.SheetNames[0]];
+        return XLSX.utils.sheet_to_json(ws);
+      } catch (err) {
+        console.error('Erro ao carregar XLSX:', err);
+        return [];
+      }
+    }
+
+    function getFilteredAndSorted() {
+      const activeFilter = document.querySelector('.btn-filter.active')?.dataset.filter || 'todos';
+      const term = document.getElementById('search-input').value.toLowerCase().trim();
+      const sort = document.getElementById('sort-select').value;
+
+      let result = allPublications.filter(pub => {
+        const matchType = activeFilter === 'todos'
+          || (pub.tipo && pub.tipo.toLowerCase() === activeFilter);
+        const matchSearch = !term
+          || (pub.titulo  && pub.titulo.toLowerCase().includes(term))
+          || (pub.autores && pub.autores.toLowerCase().includes(term))
+          || (pub.palavras_chave && pub.palavras_chave.toLowerCase().includes(term));
+        return matchType && matchSearch;
+      });
+
+      result.sort((a, b) => {
+        if (sort === 'recentes') return (b.id || 0) - (a.id || 0);
+        if (sort === 'antigos')  return (a.id || 0) - (b.id || 0);
+        if (sort === 'az')  return (a.titulo || '').localeCompare(b.titulo || '', 'pt-BR');
+        if (sort === 'za')  return (b.titulo || '').localeCompare(a.titulo || '', 'pt-BR');
+        return 0;
+      });
+
+      return result;
+    }
+
+    function renderCard(pub) {
+      const icon = getPubIcon(pub.tipo);
+      const tipo = pub.tipo || 'Publicação';
+      const isDestaque = pub.destaque === true || pub.destaque === 'TRUE' || pub.destaque == 1;
+
+      const card = document.createElement('article');
+      card.className = 'pub-item-card';
+      card.innerHTML = `
+        ${isDestaque ? '<span class="pub-destaque-badge">★ Destaque</span>' : ''}
+        <div class="pub-item-header">
+          <span class="pub-type-tag">${tipo}</span>
+          <span class="pub-item-icon" aria-hidden="true">${icon}</span>
+        </div>
+        <div class="pub-item-body">
+          <h3>${pub.titulo || '(sem título)'}</h3>
+          <p class="authors">${pub.autores || 'Autores não informados'}</p>
+          <span class="year-badge">${pub.publicado_em || 'Ano não informado'}</span>
+        </div>
+        <div class="pub-item-footer">
+          <a href="publicacao.html?id=${pub.id}" class="btn-secondary" aria-label="Ver detalhes de ${pub.titulo}">
+            Ver detalhes
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>`;
+      return card;
+    }
+
+    function renderPublications() {
+      const list     = document.getElementById('publications-list');
+      const counter  = document.getElementById('results-count');
+      const moreWrap = document.getElementById('load-more-wrap');
+
+      const filtered = getFilteredAndSorted();
+      const total    = filtered.length;
+      const slice    = filtered.slice(0, visibleCount);
+
+      list.innerHTML = '';
+
+      if (total === 0) {
+        list.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">🔍</div>
+            <h3>Nenhuma publicação encontrada</h3>
+            <p>Tente ajustar os filtros ou o termo de busca.</p>
+          </div>`;
+        counter.innerHTML = '<strong>0</strong> resultado(s)';
+        moreWrap.style.display = 'none';
+        return;
+      }
+
+      slice.forEach(pub => list.appendChild(renderCard(pub)));
+      counter.innerHTML = `Exibindo <strong>${Math.min(slice.length, total)}</strong> de <strong>${total}</strong> publicação(ões)`;
+      moreWrap.style.display = visibleCount < total ? 'block' : 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      allPublications = await loadFromExcel();
+
+      if (!allPublications.length) {
+        document.getElementById('publications-list').innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">⚠️</div>
+            <h3>Não foi possível carregar a base de dados</h3>
+            <p>Verifique se o arquivo <code>database.xlsx</code> está disponível no servidor.</p>
+          </div>`;
+        document.getElementById('results-count').textContent = '';
+        return;
+      }
+
+      // Verificar se há busca vinda da URL (busca global do index)
+      const urlParams = new URLSearchParams(window.location.search);
+      const qParam = urlParams.get('q');
+      if (qParam) document.getElementById('search-input').value = qParam;
+
+      renderPublications();
+
+      // Filtros
+      document.querySelectorAll('.btn-filter').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          visibleCount = ITEMS_PER_PAGE;
+          renderPublications();
+        });
+      });
+
+      // Busca (com debounce)
+      let searchTimer;
+      document.getElementById('search-input').addEventListener('input', () => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => {
+          visibleCount = ITEMS_PER_PAGE;
+          renderPublications();
+        }, 280);
+      });
+
+      // Ordenação
+      document.getElementById('sort-select').addEventListener('change', () => {
+        visibleCount = ITEMS_PER_PAGE;
+        renderPublications();
+      });
+
+      // Carregar mais
+      document.getElementById('load-more-btn').addEventListener('click', () => {
+        visibleCount += ITEMS_PER_PAGE;
+        renderPublications();
+        // Foca na primeira nova publicação para acessibilidade
+        const cards = document.querySelectorAll('.pub-item-card');
+        if (cards[visibleCount - ITEMS_PER_PAGE]) {
+          cards[visibleCount - ITEMS_PER_PAGE].querySelector('h3')?.focus();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

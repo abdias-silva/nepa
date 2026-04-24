@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pesquisas do NEPA — Núcleo de Estudos e Pesquisas Ambientais da UFMA. Linhas de pesquisa, projetos em andamento e concluídos, metodologias e áreas temáticas." />
+  <meta name="keywords" content="NEPA, UFMA, pesquisa ambiental, linhas de pesquisa, projetos, Amazônia, Maranhão, sustentabilidade" />
+  <title>Pesquisas | NEPA — UFMA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =========================================================
+       CABEÇALHO
+  ========================================================== -->
+  <header class="header" id="siteHeader">
+    <div class="header-container">
+      <a href="index.html" class="logo" aria-label="Página inicial do NEPA">
+        <img src="./img/NOVA_LOGO_NEPA.png" alt="Logo NEPA"
+          onerror="this.src='https://placehold.co/130x42/607537/FFFFFF?text=NEPA';" />
+      </a>
+      <nav class="navbar" id="navbar" aria-label="Navegação principal">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">Sobre</a>
+        <a href="biblioteca.html">Biblioteca</a>
+        <a href="pesquisas.html" class="active-link">Pesquisas</a>
+        <a href="membros.html">Membros</a>
+        <a href="index.html#eventos">Eventos</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Alternar tema escuro/claro">
+          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+          </svg>
+          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="display:none;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+        </button>
+        <button class="icon-btn" id="menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navbar">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =========================================================
+         HERO INTERNO
+    ========================================================== -->
+    <section class="page-hero" aria-label="Pesquisas do NEPA">
+      <div class="page-hero-inner">
+        <span class="section-label">Núcleo de Estudos e Pesquisas Ambientais</span>
+        <h1 class="section-title">Pesquisas do <span class="accent">NEPA</span></h1>
+        <p>Produzimos conhecimento científico sobre os desafios socioambientais da Amazônia e do Nordeste brasileiro, com rigor metodológico e compromisso com as populações e os ecossistemas da região.</p>
+        <div class="page-hero-meta">
+          <div class="page-hero-meta-item">
+            <span class="meta-val">8</span>
+            <span class="meta-lbl">Linhas de pesquisa</span>
+          </div>
+          <div class="page-hero-meta-item">
+            <span class="meta-val">14</span>
+            <span class="meta-lbl">Projetos ativos</span>
+          </div>
+          <div class="page-hero-meta-item">
+            <span class="meta-val">+80</span>
+            <span class="meta-lbl">Publicações</span>
+          </div>
+          <div class="page-hero-meta-item">
+            <span class="meta-val">+15</span>
+            <span class="meta-lbl">Anos de pesquisa</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         APRESENTAÇÃO
+    ========================================================== -->
+    <section class="content-section" id="apresentacao" aria-labelledby="apresentacao-title">
+      <div class="section-container">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8rem; align-items:center;">
+          <div class="reveal">
+            <span class="section-label">Sobre a pesquisa no NEPA</span>
+            <h2 class="section-title" id="apresentacao-title">Ciência a serviço do <span class="accent">território</span></h2>
+            <div class="divider"></div>
+            <p style="font-size:1.65rem; line-height:1.9; margin-bottom:2.5rem;">
+              Fundado no âmbito da Universidade Federal do Maranhão, o NEPA desenvolve investigação científica multidisciplinar voltada para a compreensão dos processos socioambientais que incidem sobre a Amazônia, o Cerrado maranhense e as zonas costeiras do Nordeste.
+            </p>
+            <p style="font-size:1.65rem; line-height:1.9;">
+              Nossos projetos articulam pesquisa básica e aplicada, com forte inserção territorial e diálogo permanente com gestores públicos, comunidades tradicionais e organizações da sociedade civil.
+            </p>
+          </div>
+          <div class="reveal reveal-delay-2" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
+            <div style="background:var(--verde-bg); border-radius:var(--radius-md); padding:3rem 2.5rem; text-align:center;">
+              <span style="font-size:4rem; font-weight:800; color:var(--verde); display:block; line-height:1;">CNPq</span>
+              <p style="font-size:1.3rem; color:var(--cinza-claro); margin-top:0.8rem; font-weight:500;">Projetos financiados</p>
+            </div>
+            <div style="background:var(--verde-bg); border-radius:var(--radius-md); padding:3rem 2.5rem; text-align:center;">
+              <span style="font-size:4rem; font-weight:800; color:var(--verde); display:block; line-height:1;">FAPEMA</span>
+              <p style="font-size:1.3rem; color:var(--cinza-claro); margin-top:0.8rem; font-weight:500;">Bolsas e fomento</p>
+            </div>
+            <div style="background:var(--verde-bg); border-radius:var(--radius-md); padding:3rem 2.5rem; text-align:center;">
+              <span style="font-size:4rem; font-weight:800; color:var(--verde); display:block; line-height:1;">IBGE</span>
+              <p style="font-size:1.3rem; color:var(--cinza-claro); margin-top:0.8rem; font-weight:500;">Parceria de dados</p>
+            </div>
+            <div style="background:var(--verde-bg); border-radius:var(--radius-md); padding:3rem 2.5rem; text-align:center;">
+              <span style="font-size:4rem; font-weight:800; color:var(--verde); display:block; line-height:1;">SEMA</span>
+              <p style="font-size:1.3rem; color:var(--cinza-claro); margin-top:0.8rem; font-weight:500;">Convênios estaduais</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         LINHAS DE PESQUISA
+    ========================================================== -->
+    <section class="content-section section-bg" id="linhas" aria-labelledby="linhas-title">
+      <div class="section-container">
+        <div class="section-header center reveal">
+          <span class="section-label">Estrutura científica</span>
+          <h2 class="section-title center" id="linhas-title">Linhas de <span class="accent">Pesquisa</span></h2>
+          <div class="divider center"></div>
+          <p class="section-desc center">
+            Nosso trabalho científico se organiza em linhas temáticas interdisciplinares, integrando Geografia, Ecologia, Ciências Sociais e Saúde Coletiva.
+          </p>
+        </div>
+
+        <div class="linhas-grid">
+
+          <article class="linha-card reveal" style="--linha-color:#607537;">
+            <div class="linha-icon">🌿</div>
+            <h3>Ecologia da Paisagem e Mudanças no Uso do Solo</h3>
+            <p>Análise dos processos de transformação da cobertura vegetal e seus impactos sobre a biodiversidade e os serviços ecossistêmicos na Amazônia e no Cerrado maranhense.</p>
+            <div class="linha-tags">
+              <span class="linha-tag">SIG</span>
+              <span class="linha-tag">Sensoriamento remoto</span>
+              <span class="linha-tag">LULC</span>
+            </div>
+          </article>
+
+          <article class="linha-card reveal reveal-delay-1" style="--linha-color:#285aa0;">
+            <div class="linha-icon">🗺️</div>
+            <h3>Geoprocessamento e Análise Espacial</h3>
+            <p>Desenvolvimento e aplicação de metodologias de análise espacial para diagnóstico socioambiental, mapeamento de vulnerabilidades e suporte a políticas públicas territoriais.</p>
+            <div class="linha-tags">
+              <span class="linha-tag">QGIS</span>
+              <span class="linha-tag">ArcGIS</span>
+              <span class="linha-tag">Cartografia</span>
+            </div>
+          </article>
+
+          <article class="linha-card reveal reveal-delay-2" style="--linha-color:#c8641e;">
+            <div class="linha-icon">💧</div>
+            <h3>Recursos Hídricos e Zonas Costeiras</h3>
+            <p>Avaliação da qualidade e disponibilidade de recursos hídricos, com ênfase nos impactos da urbanização sobre bacias hidrográficas e zonas estuarino-costeiras do Maranhão.</p>
+            <div class="linha-tags">
+              <span class="linha-tag">Hidrologia</span>
+              <span class="linha-tag">Zonas costeiras</span>
+              <span class="linha-tag">Qualidade da água</span>
+            </div>
+          </article>
+
+          <article class="linha-card reveal" style="--linha-color:#7846b4;">
+            <div class="linha-icon">🏙️</div>
+            <h3>Ambiente Urbano e Saúde Coletiva</h3>
+            <p>Investigação das relações entre condições ambientais urbanas, vulnerabilidade social e indicadores de saúde, com análise geoespacial aplicada à epidemiologia e ao planejamento urbano.</p>
+            <div class="linha-tags">
+              <span class="linha-tag">Geografia médica</span>
+              <span class="linha-tag">Epidemiologia</span>
+              <span class="linha-tag">Vulnerabilidade</span>
+            </div>
+          </article>
+
+          <article class="linha-card reveal reveal-delay-1" style="--linha-color:#1a7a4a;">
+            <div class="linha-icon">🌾</div>
+            <h3>Comunidades Rurais e Populações Tradicionais</h3>
+            <p>Estudos sobre os modos de vida, territorialidade e estratégias de resiliência de populações quilombolas, indígenas e ribeirinhas frente às pressões socioambientais contemporâneas.</p>
+            <div class="linha-tags">
+              <span class="linha-tag">Etnografia</span>
+              <span class="linha-tag">Territorialidade</span>
+              <span class="linha-tag">Sociologia ambiental</span>
+            </div>
+          </article>
+
+          <article class="linha-card reveal reveal-delay-2" style="--linha-color:#a0522d;">
+            <div class="linha-icon">🌡️</div>
+            <h3>Mudanças Climáticas e Vulnerabilidade Socioambiental</h3>
+            <p>Análise dos efeitos das mudanças climáticas sobre a dinâmica territorial, os sistemas alimentares e a segurança hídrica de populações em situação de vulnerabilidade no Nordeste e Amazônia.</p>
+            <div class="linha-tags">
+              <span class="linha-tag">Clima</span>
+              <span class="linha-tag">Adaptação</span>
+              <span class="linha-tag">Segurança alimentar</span>
+            </div>
+          </article>
+
+          <article class="linha-card reveal" style="--linha-color:#2c7a7a;">
+            <div class="linha-icon">♻️</div>
+            <h3>Educação Ambiental e Extensão Universitária</h3>
+            <p>Desenvolvimento de programas de educação ambiental formal e não-formal, voltados para a formação crítica e o engajamento comunitário em torno das questões socioambientais locais.</p>
+            <div class="linha-tags">
+              <span class="linha-tag">Educação ambiental</span>
+              <span class="linha-tag">Extensão</span>
+              <span class="linha-tag">Formação</span>
+            </div>
+          </article>
+
+          <article class="linha-card reveal reveal-delay-1" style="--linha-color:#5a2d82;">
+            <div class="linha-icon">📊</div>
+            <h3>Indicadores Ambientais e Governança</h3>
+            <p>Construção e monitoramento de indicadores de sustentabilidade ambiental para suporte à governança territorial, com foco na articulação entre ciência, políticas públicas e gestão do território.</p>
+            <div class="linha-tags">
+              <span class="linha-tag">Indicadores</span>
+              <span class="linha-tag">Governança</span>
+              <span class="linha-tag">Políticas públicas</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PROJETOS EM ANDAMENTO
+    ========================================================== -->
+    <section class="content-section" id="projetos-ativos" aria-labelledby="projetos-ativos-title">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-label">Em execução</span>
+          <h2 class="section-title" id="projetos-ativos-title">Projetos em <span class="accent">Andamento</span></h2>
+          <div class="divider"></div>
+          <p class="section-desc">Pesquisas atualmente em desenvolvimento, com equipes, cronogramas e financiamento em atividade.</p>
+        </div>
+
+        <div class="pesq-projetos-grid">
+
+          <article class="pesq-projeto-card reveal">
+            <div class="pesq-projeto-header">
+              <h3>Mapeamento da Cobertura Vegetal no Cerrado Maranhense (2021–2025)</h3>
+              <span class="badge badge-verde">Em andamento</span>
+            </div>
+            <p>Monitoramento multitemporal da dinâmica de uso e cobertura do solo no Cerrado do Maranhão, com uso de imagens Sentinel-2 e análise de séries temporais para detecção de desmatamento e degradação florestal.</p>
+            <div class="pesq-projeto-meta">
+              <span class="pesq-meta-tag">📅 2021 – 2025</span>
+              <span class="pesq-meta-tag">💰 CNPq</span>
+              <span class="pesq-meta-tag">👥 4 pesquisadores</span>
+            </div>
+          </article>
+
+          <article class="pesq-projeto-card reveal reveal-delay-1">
+            <div class="pesq-projeto-header">
+              <h3>Vulnerabilidade Socioambiental em São Luís: Índice Integrado</h3>
+              <span class="badge badge-verde">Em andamento</span>
+            </div>
+            <p>Construção de um índice multidimensional de vulnerabilidade socioambiental para os bairros de São Luís, articulando dados censitários, ambientais e de saúde em uma plataforma SIG colaborativa.</p>
+            <div class="pesq-projeto-meta">
+              <span class="pesq-meta-tag">📅 2022 – 2025</span>
+              <span class="pesq-meta-tag">💰 FAPEMA</span>
+              <span class="pesq-meta-tag">👥 6 pesquisadores</span>
+            </div>
+          </article>
+
+          <article class="pesq-projeto-card reveal">
+            <div class="pesq-projeto-header">
+              <h3>Qualidade da Água e Riscos à Saúde na Bacia do Rio Bacanga</h3>
+              <span class="badge badge-verde">Em andamento</span>
+            </div>
+            <p>Avaliação da qualidade físico-química e microbiológica das águas do rio Bacanga e análise dos riscos à saúde das populações que vivem em seu entorno, em São Luís e municípios vizinhos.</p>
+            <div class="pesq-projeto-meta">
+              <span class="pesq-meta-tag">📅 2023 – 2026</span>
+              <span class="pesq-meta-tag">💰 UFMA/PROEXE</span>
+              <span class="pesq-meta-tag">👥 3 pesquisadores</span>
+            </div>
+          </article>
+
+          <article class="pesq-projeto-card reveal reveal-delay-1">
+            <div class="pesq-projeto-header">
+              <h3>Territórios Quilombolas e Pressões Fundiárias no Maranhão</h3>
+              <span class="badge badge-verde">Em andamento</span>
+            </div>
+            <p>Análise geoespacial e etnográfica das dinâmicas de conflitos fundiários que incidem sobre os territórios quilombolas maranhenses, com ênfase nos processos de titulação e violações de direitos territoriais.</p>
+            <div class="pesq-projeto-meta">
+              <span class="pesq-meta-tag">📅 2023 – 2025</span>
+              <span class="pesq-meta-tag">💰 CAPES/PNPD</span>
+              <span class="pesq-meta-tag">👥 5 pesquisadores</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PROJETOS CONCLUÍDOS
+    ========================================================== -->
+    <section class="content-section section-bg" id="projetos-concluidos" aria-labelledby="concluidos-title">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-label">Histórico de pesquisa</span>
+          <h2 class="section-title" id="concluidos-title">Projetos <span class="accent">Concluídos</span></h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="pesq-projetos-grid">
+
+          <article class="pesq-projeto-card reveal">
+            <div class="pesq-projeto-header">
+              <h3>Rotas Espaciais da COVID-19 no Estado do Maranhão</h3>
+              <span class="badge badge-azul">Concluído</span>
+            </div>
+            <p>Investigação dos padrões espaciais de difusão da COVID-19 no Maranhão, articulando análise de redes de mobilidade, vulnerabilidade territorial e indicadores socioeconômicos. Resultou em publicação na Revista Hygeia.</p>
+            <div class="pesq-projeto-meta">
+              <span class="pesq-meta-tag">📅 2020 – 2022</span>
+              <span class="pesq-meta-tag">💰 FAPEMA Emergencial</span>
+              <span class="pesq-meta-tag">📄 2 publicações</span>
+            </div>
+          </article>
+
+          <article class="pesq-projeto-card reveal reveal-delay-1">
+            <div class="pesq-projeto-header">
+              <h3>Atlas Socioambiental do Litoral Maranhense</h3>
+              <span class="badge badge-azul">Concluído</span>
+            </div>
+            <p>Elaboração do Atlas Socioambiental do Litoral Maranhense, com mapeamento integrado de ecossistemas costeiros, populações tradicionais, uso do solo e pressões antrópicas, com 120 mapas temáticos.</p>
+            <div class="pesq-projeto-meta">
+              <span class="pesq-meta-tag">📅 2018 – 2021</span>
+              <span class="pesq-meta-tag">💰 CNPq</span>
+              <span class="pesq-meta-tag">📄 Atlas publicado</span>
+            </div>
+          </article>
+
+          <article class="pesq-projeto-card reveal">
+            <div class="pesq-projeto-header">
+              <h3>Desmatamento e Governança Ambiental na Amazônia Legal</h3>
+              <span class="badge badge-azul">Concluído</span>
+            </div>
+            <p>Análise crítica das políticas de controle do desmatamento na Amazônia Legal entre 2008 e 2020, com avaliação dos instrumentos de governança, efetividade dos órgãos de fiscalização e dinâmicas locais.</p>
+            <div class="pesq-projeto-meta">
+              <span class="pesq-meta-tag">📅 2017 – 2020</span>
+              <span class="pesq-meta-tag">💰 CNPq/Universal</span>
+              <span class="pesq-meta-tag">📄 4 publicações</span>
+            </div>
+          </article>
+
+          <article class="pesq-projeto-card reveal reveal-delay-1">
+            <div class="pesq-projeto-header">
+              <h3>Indicadores de Bem-estar Humano e Conservação em APAs</h3>
+              <span class="badge badge-azul">Concluído</span>
+            </div>
+            <p>Desenvolvimento de metodologia para avaliação integrada do bem-estar humano em comunidades residentes em Áreas de Proteção Ambiental do Maranhão, articulando dados ecológicos e socioeconômicos.</p>
+            <div class="pesq-projeto-meta">
+              <span class="pesq-meta-tag">📅 2019 – 2023</span>
+              <span class="pesq-meta-tag">💰 CAPES</span>
+              <span class="pesq-meta-tag">📄 3 publicações</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         METODOLOGIA / FRENTES DE ATUAÇÃO
+    ========================================================== -->
+    <section class="content-section" id="metodologia" aria-labelledby="metodologia-title">
+      <div class="section-container">
+        <div class="section-header center reveal">
+          <span class="section-label">Como trabalhamos</span>
+          <h2 class="section-title center" id="metodologia-title">Frentes de <span class="accent">Atuação</span></h2>
+          <div class="divider center"></div>
+          <p class="section-desc center">Nossa abordagem combina técnicas de geotecnologia, pesquisa de campo, análise de dados e engajamento comunitário.</p>
+        </div>
+
+        <div class="frentes-grid">
+          <div class="frente-card reveal">
+            <span class="frente-icon">🛰️</span>
+            <h3>Geotecnologias e Sensoriamento Remoto</h3>
+            <p>Uso de imagens de satélite, VANT, SIG e análise de séries temporais para monitoramento e diagnóstico ambiental em múltiplas escalas.</p>
+          </div>
+          <div class="frente-card reveal reveal-delay-1">
+            <span class="frente-icon">🔬</span>
+            <h3>Pesquisa de Campo e Etnografia</h3>
+            <p>Levantamentos de campo, entrevistas, grupos focais e observação participante, garantindo a articulação entre dados quantitativos e qualitativos.</p>
+          </div>
+          <div class="frente-card reveal reveal-delay-2">
+            <span class="frente-icon">📊</span>
+            <h3>Análise Estatística e Modelagem</h3>
+            <p>Modelagem estatística espacial e ambiental com uso de R, Python e ferramentas especializadas para análise de padrões e simulações.</p>
+          </div>
+          <div class="frente-card reveal reveal-delay-3">
+            <span class="frente-icon">🤝</span>
+            <h3>Pesquisa Participativa e Extensão</h3>
+            <p>Desenvolvimento de pesquisas em parceria com comunidades, gestores e organizações sociais, promovendo co-produção de conhecimento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ÁREAS TEMÁTICAS
+    ========================================================== -->
+    <section class="content-section section-bg" id="areas-tematicas" aria-labelledby="areas-title">
+      <div class="section-container">
+        <div class="section-header center reveal">
+          <span class="section-label">Temas transversais</span>
+          <h2 class="section-title center" id="areas-title">Áreas <span class="accent">Temáticas</span></h2>
+          <div class="divider center"></div>
+          <p class="section-desc center">Os temas que perpassam nossas pesquisas refletem os grandes desafios ambientais e sociais da região onde atuamos.</p>
+        </div>
+
+        <div class="temas-wrap reveal">
+          <span class="tema-pill">🌿 Biodiversidade</span>
+          <span class="tema-pill">💧 Recursos Hídricos</span>
+          <span class="tema-pill">🌡️ Mudanças Climáticas</span>
+          <span class="tema-pill">🏙️ Urbanização e Saúde</span>
+          <span class="tema-pill">🌾 Agricultura Familiar</span>
+          <span class="tema-pill">🛡️ Povos Tradicionais</span>
+          <span class="tema-pill">🗺️ Geoprocessamento</span>
+          <span class="tema-pill">♻️ Educação Ambiental</span>
+          <span class="tema-pill">🌲 Desmatamento</span>
+          <span class="tema-pill">🐚 Zonas Costeiras</span>
+          <span class="tema-pill">🦠 Epidemiologia Espacial</span>
+          <span class="tema-pill">📐 Planejamento Territorial</span>
+          <span class="tema-pill">⚖️ Conflitos Ambientais</span>
+          <span class="tema-pill">🌏 Sustentabilidade</span>
+          <span class="tema-pill">🐟 Aquicultura e Pesca</span>
+          <span class="tema-pill">🔥 Queimadas e Incêndios</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         DESTAQUES DE PRODUÇÃO CIENTÍFICA
+    ========================================================== -->
+    <section class="content-section" id="producao" aria-labelledby="producao-title">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <span class="section-label">Evidências de impacto</span>
+          <h2 class="section-title" id="producao-title">Produção <span class="accent">Científica</span></h2>
+          <div class="divider"></div>
+          <p class="section-desc">Alguns destaques da produção científica do NEPA vinculados às linhas de pesquisa em curso.</p>
+        </div>
+
+        <div class="publications-grid">
+
+          <article class="publication-card reveal">
+            <div class="pub-card-meta">
+              <div class="pub-type-icon">📄</div>
+              <span class="badge badge-verde">Artigo</span>
+            </div>
+            <h3 class="pub-card-title">Difusão espacial da COVID-19 e vulnerabilidade territorial no Maranhão</h3>
+            <div class="pub-card-authors">Autores do NEPA · Revista Hygeia</div>
+            <div class="pub-card-footer">
+              <span class="pub-year">2022</span>
+              <a href="biblioteca.html" class="btn-secondary">
+                Ver na biblioteca
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="publication-card reveal reveal-delay-1">
+            <div class="pub-card-meta">
+              <div class="pub-type-icon">🗺️</div>
+              <span class="badge badge-roxo">Atlas</span>
+            </div>
+            <h3 class="pub-card-title">Atlas Socioambiental do Litoral Maranhense: ecossistemas, populações e pressões antrópicas</h3>
+            <div class="pub-card-authors">NEPA/UFMA · Edições UFMA</div>
+            <div class="pub-card-footer">
+              <span class="pub-year">2021</span>
+              <a href="biblioteca.html" class="btn-secondary">
+                Ver na biblioteca
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="publication-card reveal reveal-delay-2">
+            <div class="pub-card-meta">
+              <div class="pub-type-icon">📚</div>
+              <span class="badge badge-azul">Livro</span>
+            </div>
+            <h3 class="pub-card-title">Cerrado Maranhense: fragmentação, serviços ecossistêmicos e perspectivas de conservação</h3>
+            <div class="pub-card-authors">Organizadores: NEPA · Editora UFMA</div>
+            <div class="pub-card-footer">
+              <span class="pub-year">2020</span>
+              <a href="biblioteca.html" class="btn-secondary">
+                Ver na biblioteca
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CTA — BIBLIOTECA E CONTATO
+    ========================================================== -->
+    <section class="content-section section-bg" aria-label="Chamadas de ação">
+      <div class="section-container">
+        <div class="pesq-cta-strip reveal">
+          <div>
+            <h2>Explore nossa biblioteca científica</h2>
+            <p>Acesse o acervo completo de publicações, atlas, artigos e livros produzidos pelo NEPA ao longo de mais de 15 anos de pesquisa ambiental no Maranhão.</p>
+          </div>
+          <div class="pesq-cta-btns">
+            <a href="biblioteca.html" class="btn">
+              Acessar a biblioteca
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="index.html#contato" class="btn btn-outline">Fale conosco</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       RODAPÉ
+  ========================================================== -->
+  <footer class="footer-section" aria-label="Rodapé e informações de contato">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="./img/NOVA_LOGO_NEPA.png" alt="Logo NEPA"
+          onerror="this.src='https://placehold.co/120x38/607537/FFFFFF?text=NEPA';" loading="lazy" />
+        <p>Núcleo de Estudos e Pesquisas Ambientais — Universidade Federal do Maranhão. Ciência, extensão e compromisso com o meio ambiente.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Página inicial</a></li>
+          <li><a href="index.html#about">Sobre o NEPA</a></li>
+          <li><a href="biblioteca.html">Biblioteca digital</a></li>
+          <li><a href="pesquisas.html">Pesquisas</a></li>
+          <li><a href="membros.html">Membros</a></li>
+          <li><a href="index.html#eventos">Eventos</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <div class="footer-contact-item">
+          <span>📍</span>
+          <p>Av. dos Portugueses, 1966 — Vila Bacanga, São Luís, MA · CEP 65080-805</p>
+        </div>
+        <div class="footer-contact-item">
+          <span>✉️</span>
+          <a href="mailto:contato.nepa@ufma.br">contato.nepa@ufma.br</a>
+        </div>
+      </div>
+      <div class="footer-map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.035579462823!2d-44.3079216!3d-2.5412499999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f68f5c3e884175%3A0x7d73934f71a41f6e!2sUniversidade%20Federal%20do%20Maranh%C3%A3o!5e0!3m2!1spt-BR!2sbr!4v1729392510165!5m2!1spt-BR!2sbr"
+          title="Mapa da localização da UFMA"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 NEPA — Núcleo de Estudos e Pesquisas Ambientais · UFMA. Todos os direitos reservados.</p>
+      <p style="font-size:1.2rem; opacity:0.5;">Desenvolvido com ♥ pela equipe NEPA</p>
+    </div>
+  </footer>
+
+  <!-- Botão voltar ao topo -->
+  <button id="back-to-top" aria-label="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+
+  <script>
+    // TEMA
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const iconSun  = document.getElementById('iconSun');
+    const iconMoon = document.getElementById('iconMoon');
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('nepa-theme', t);
+      iconSun.style.display  = t === 'dark' ? 'none' : 'block';
+      iconMoon.style.display = t === 'dark' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('nepa-theme') || 'light');
+    themeToggle.addEventListener('click', () => {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    // MENU MOBILE
+    const menuBtn = document.getElementById('menu-btn');
+    const navbar  = document.getElementById('navbar');
+    menuBtn.addEventListener('click', () => {
+      const open = navbar.classList.toggle('active');
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+
+    // HEADER SCROLL
+    const header = document.getElementById('siteHeader');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const st = window.scrollY;
+      header.classList.toggle('header--hidden', st > lastScroll && st > 100);
+      header.classList.toggle('scrolled', st > 60);
+      if (navbar.classList.contains('active')) navbar.classList.remove('active');
+      lastScroll = st <= 0 ? 0 : st;
+    }, { passive: true });
+
+    // VOLTAR AO TOPO
+    const btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 400); }, { passive: true });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // REVEAL ON SCROLL
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+  </script>
+</body>
+</html>
