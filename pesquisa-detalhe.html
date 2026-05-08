@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Detalhes do projeto de pesquisa — NEPA · UFMA" />
+  <title>Projeto de Pesquisa | NEPA — UFMA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ============================================================
+       PÁGINA: DETALHE DO PROJETO DE PESQUISA
+    ============================================================ */
+
+    /* Breadcrumb */
+    .breadcrumb-bar {
+      padding: 1.6rem 3rem;
+      border-bottom: 1px solid var(--border-color);
+      background: var(--bg-secao);
+      margin-top: var(--header-h);
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      font-size: 1.35rem;
+      color: var(--cinza-claro);
+    }
+    .breadcrumb a { color: var(--cinza-claro); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--verde); }
+    .breadcrumb-sep { opacity: 0.45; font-size: 1.1rem; }
+    .breadcrumb-current { color: var(--verde); font-weight: 600; }
+
+    /* Layout principal: sidebar + conteúdo */
+    .projeto-detail-main {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 5rem 3rem 8rem;
+      align-items: start;
+    }
+
+    /* ── Cabeçalho do projeto ── */
+    .projeto-detail-header {
+      margin-bottom: 4rem;
+    }
+    .projeto-detail-type-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .projeto-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1.4rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      font-family: var(--fonte-corpo);
+      letter-spacing: 0.03em;
+    }
+    .projeto-status-badge.andamento {
+      background: rgba(96, 117, 55, 0.12);
+      color: var(--verde-escuro);
+    }
+    .projeto-status-badge.concluido {
+      background: rgba(40, 90, 160, 0.1);
+      color: #285aa0;
+    }
+    .projeto-status-badge.pausado {
+      background: rgba(200, 100, 30, 0.1);
+      color: #c8641e;
+    }
+    .projeto-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .projeto-detail-title {
+      font-size: clamp(2.4rem, 3.5vw, 3.6rem);
+      font-weight: 800;
+      color: var(--preto);
+      line-height: 1.25;
+      margin-bottom: 1.8rem;
+    }
+    .projeto-detail-linha {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--verde);
+      margin-bottom: 2.5rem;
+    }
+    .projeto-detail-linha svg { flex-shrink: 0; }
+
+    /* ── Seções de conteúdo ── */
+    .projeto-section {
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .projeto-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .projeto-section-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--preto);
+      margin-bottom: 2rem;
+    }
+    .projeto-section-title svg {
+      color: var(--verde);
+      flex-shrink: 0;
+    }
+    .projeto-section p {
+      font-size: 1.6rem;
+      line-height: 1.9;
+      color: var(--cinza-texto);
+      margin-bottom: 1.5rem;
+    }
+    .projeto-section p:last-child { margin-bottom: 0; }
+
+    /* Objetivos lista */
+    .projeto-objetivos-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .projeto-objetivo-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      font-size: 1.55rem;
+      line-height: 1.7;
+      color: var(--cinza-texto);
+    }
+    .projeto-objetivo-marker {
+      flex-shrink: 0;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: rgba(96, 117, 55, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.15em;
+    }
+    .projeto-objetivo-marker svg { color: var(--verde); }
+
+    /* Equipe */
+    .projeto-equipe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.8rem;
+      margin-top: 0.5rem;
+    }
+    .projeto-membro-card {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      padding: 1.8rem 2rem;
+      background: var(--bg-secao);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      transition: var(--dur) var(--ease);
+    }
+    .projeto-membro-card:hover {
+      border-color: rgba(96, 117, 55, 0.35);
+      background: var(--bg);
+      transform: translateY(-2px);
+      box-shadow: var(--sombra-xs);
+    }
+    .projeto-membro-avatar {
+      width: 4.4rem;
+      height: 4.4rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--verde-bg) 0%, rgba(96,117,55,0.2) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--verde);
+    }
+    .projeto-membro-info { min-width: 0; }
+    .projeto-membro-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--preto);
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .projeto-membro-role {
+      font-size: 1.2rem;
+      color: var(--cinza-claro);
+      font-weight: 500;
+      margin-top: 0.2rem;
+    }
+
+    /* Palavras-chave / metodologias */
+    .projeto-tags-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .projeto-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.6rem;
+      background: var(--verde-bg);
+      border: 1.5px solid rgba(96, 117, 55, 0.2);
+      border-radius: 50px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--verde-escuro);
+      transition: var(--dur) var(--ease);
+    }
+    .projeto-tag:hover {
+      background: var(--verde);
+      color: #fff;
+      border-color: var(--verde);
+    }
+
+    /* Cronograma / etapas */
+    .projeto-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 0.5rem;
+      position: relative;
+    }
+    .projeto-timeline::before {
+      content: '';
+      position: absolute;
+      left: 1.35rem;
+      top: 2rem;
+      bottom: 2rem;
+      width: 2px;
+      background: var(--border-color);
+    }
+    .projeto-etapa {
+      display: flex;
+      gap: 2.2rem;
+      padding: 0 0 3rem;
+      position: relative;
+    }
+    .projeto-etapa:last-child { padding-bottom: 0; }
+    .projeto-etapa-dot {
+      flex-shrink: 0;
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 50%;
+      border: 2.5px solid var(--verde);
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      transition: var(--dur) var(--ease);
+    }
+    .projeto-etapa.concluida .projeto-etapa-dot {
+      background: var(--verde);
+      color: #fff;
+    }
+    .projeto-etapa.atual .projeto-etapa-dot {
+      background: var(--verde);
+      color: #fff;
+      box-shadow: 0 0 0 4px rgba(96, 117, 55, 0.2);
+    }
+    .projeto-etapa-body { padding-top: 0.2rem; }
+    .projeto-etapa-periodo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--verde);
+      margin-bottom: 0.4rem;
+    }
+    .projeto-etapa-titulo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--preto);
+      margin-bottom: 0.5rem;
+    }
+    .projeto-etapa-desc {
+      font-size: 1.4rem;
+      color: var(--cinza-claro);
+      line-height: 1.7;
+    }
+
+    /* Publicações vinculadas */
+    .projeto-pubs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .projeto-pub-item {
+      display: flex;
+      gap: 1.8rem;
+      padding: 2rem 2.2rem;
+      background: var(--bg-secao);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      align-items: flex-start;
+      transition: var(--dur) var(--ease);
+    }
+    .projeto-pub-item:hover {
+      border-color: rgba(96,117,55,0.3);
+      background: var(--bg);
+      transform: translateX(4px);
+    }
+    .projeto-pub-icon {
+      flex-shrink: 0;
+      width: 4rem;
+      height: 4rem;
+      border-radius: var(--radius-sm);
+      background: rgba(96, 117, 55, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--verde);
+    }
+    .projeto-pub-body { flex: 1; min-width: 0; }
+    .projeto-pub-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--preto);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+    .projeto-pub-meta {
+      font-size: 1.25rem;
+      color: var(--cinza-claro);
+    }
+    .projeto-pub-link {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.4rem;
+      height: 3.4rem;
+      border-radius: 50%;
+      background: var(--verde-bg);
+      color: var(--verde);
+      border: 1px solid rgba(96,117,55,0.2);
+      transition: var(--dur) var(--ease);
+      margin-top: 0.3rem;
+    }
+    .projeto-pub-link:hover { background: var(--verde); color: #fff; border-color: var(--verde); }
+
+    /* Financiamento */
+    .projeto-financ-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .projeto-financ-item {
+      padding: 2.2rem 2rem;
+      background: var(--bg-secao);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      transition: var(--dur) var(--ease);
+    }
+    .projeto-financ-item:hover {
+      border-color: rgba(96,117,55,0.3);
+      background: var(--bg);
+      transform: translateY(-3px);
+      box-shadow: var(--sombra-xs);
+    }
+    .projeto-financ-logo {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--verde);
+      line-height: 1;
+      margin-bottom: 0.7rem;
+    }
+    .projeto-financ-desc {
+      font-size: 1.2rem;
+      color: var(--cinza-claro);
+      font-weight: 500;
+    }
+    .projeto-financ-valor {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--preto);
+      margin-top: 0.4rem;
+    }
+
+    /* ── SIDEBAR ── */
+    .projeto-sidebar-card {
+      background: var(--bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--sombra-sm);
+      overflow: hidden;
+      position: sticky;
+      top: calc(var(--header-h) + 2.5rem);
+    }
+    .sidebar-header {
+      padding: 2.2rem 2.5rem;
+      background: var(--verde);
+      color: #fff;
+    }
+    .sidebar-header h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+    .sidebar-header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+    .sidebar-meta-list {
+      padding: 0.5rem 0;
+    }
+    .sidebar-meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.4rem;
+      padding: 1.6rem 2.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .sidebar-meta-item:last-child { border-bottom: none; }
+    .sidebar-meta-icon {
+      flex-shrink: 0;
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 8px;
+      background: var(--verde-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--verde);
+      margin-top: 0.1rem;
+    }
+    .sidebar-meta-label {
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--cinza-claro);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .sidebar-meta-value {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--preto);
+      line-height: 1.5;
+    }
+    .sidebar-meta-value a {
+      color: var(--verde);
+      text-decoration: underline;
+      text-decoration-color: rgba(96,117,55,0.3);
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+    .sidebar-meta-value a:hover { color: var(--verde-escuro); }
+    .sidebar-actions {
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .sidebar-btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 1.4rem 2rem;
+      background: var(--verde);
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-family: var(--fonte-corpo);
+      border-radius: 50px;
+      border: 2px solid var(--verde);
+      box-shadow: 0 6px 20px rgba(96,117,55,0.25);
+      transition: var(--dur) var(--ease);
+    }
+    .sidebar-btn-primary:hover {
+      background: var(--verde-escuro);
+      border-color: var(--verde-escuro);
+      transform: translateY(-2px);
+    }
+    .sidebar-btn-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 1.2rem 2rem;
+      background: transparent;
+      color: var(--verde);
+      font-size: 1.35rem;
+      font-weight: 600;
+      font-family: var(--fonte-corpo);
+      border-radius: 50px;
+      border: 1.5px solid rgba(96, 117, 55, 0.3);
+      transition: var(--dur) var(--ease);
+    }
+    .sidebar-btn-secondary:hover {
+      background: var(--verde-bg);
+      border-color: var(--verde);
+    }
+
+    /* Progresso */
+    .sidebar-progress-wrap {
+      padding: 2rem 2.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .sidebar-progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--cinza-texto);
+    }
+    .sidebar-progress-label span:last-child { color: var(--verde); font-weight: 700; }
+    .sidebar-progress-bar {
+      height: 6px;
+      background: var(--verde-bg);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .sidebar-progress-fill {
+      height: 100%;
+      background: var(--verde);
+      border-radius: 10px;
+      transition: width 1.2s var(--ease);
+    }
+
+    /* Projetos relacionados */
+    .related-projects-section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 3rem 8rem;
+    }
+    .related-projects-section .section-label { margin-bottom: 1rem; }
+    .related-projects-section h2 {
+      font-size: 2.8rem;
+      color: var(--preto);
+      margin-bottom: 1.5rem;
+    }
+    .related-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+    }
+
+    /* Loading e erro */
+    .estado-loading, .estado-erro {
+      text-align: center;
+      padding: 15rem 2rem 8rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .estado-erro-icon {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      background: rgba(96,117,55,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2.5rem;
+      color: var(--verde);
+    }
+    .loading-spinner {
+      width: 4rem;
+      height: 4rem;
+      border: 3px solid var(--verde-bg);
+      border-top-color: var(--verde);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 2rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Responsividade ── */
+    @media (max-width: 1024px) {
+      .projeto-detail-main { grid-template-columns: 1fr; gap: 4rem; }
+      .projeto-sidebar-card { position: static; order: -1; }
+      .sidebar-meta-list { display: grid; grid-template-columns: 1fr 1fr; }
+      .sidebar-meta-item { border-right: 1px solid var(--border-color); }
+      .sidebar-meta-item:nth-child(even) { border-right: none; }
+      .related-projects-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .projeto-detail-main { padding: 3rem 2rem 6rem; }
+      .projeto-equipe-grid { grid-template-columns: 1fr; }
+      .sidebar-meta-list { display: block; }
+      .sidebar-meta-item { border-right: none; }
+      .related-projects-grid { grid-template-columns: 1fr; }
+      .related-projects-section { padding: 0 2rem 6rem; }
+      .breadcrumb-bar { padding: 1.4rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       CABEÇALHO
+  ========================================================== -->
+  <header class="header" id="siteHeader">
+    <div class="header-container">
+      <a href="index.html" class="logo" aria-label="Página inicial do NEPA">
+        <img src="./img/NOVA_LOGO_NEPA.png" alt="Logo NEPA"
+          onerror="this.src='https://placehold.co/130x42/607537/FFFFFF?text=NEPA';" />
+      </a>
+      <nav class="navbar" id="navbar" aria-label="Navegação principal">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">Sobre</a>
+        <a href="biblioteca.html">Biblioteca</a>
+        <a href="pesquisas.html" class="active-link">Pesquisas</a>
+        <a href="membros.html">Membros</a>
+        <a href="index.html#eventos">Eventos</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Alternar tema escuro/claro">
+          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+          </svg>
+          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" style="display:none;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+        </button>
+        <button class="icon-btn" id="menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navbar">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =========================================================
+         BREADCRUMB
+    ========================================================== -->
+    <div class="breadcrumb-bar">
+      <nav class="breadcrumb" aria-label="Localização atual">
+        <a href="index.html">NEPA</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <a href="pesquisas.html">Pesquisas</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span class="breadcrumb-current" id="breadcrumb-title">Projeto</span>
+      </nav>
+    </div>
+
+    <!-- =========================================================
+         ESTADO DE LOADING
+    ========================================================== -->
+    <div id="loading-state" style="text-align:center; padding:15rem 2rem 8rem;">
+      <div class="loading-spinner"></div>
+      <p style="font-size:1.6rem; color:var(--cinza-claro);">Carregando projeto...</p>
+    </div>
+
+    <!-- =========================================================
+         ESTADO DE ERRO
+    ========================================================== -->
+    <div id="error-state" style="display:none;" class="estado-erro">
+      <div class="estado-erro-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <h2 style="font-family:var(--fonte-corpo); font-size:2.2rem; margin-bottom:1rem; color:var(--preto);">Projeto não encontrado</h2>
+      <p style="font-size:1.55rem; color:var(--cinza-claro); margin-bottom:3rem; line-height:1.8;">Não foi possível localizar este projeto. Verifique o link ou explore nossa página de pesquisas.</p>
+      <a href="pesquisas.html" class="btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+        Voltar para Pesquisas
+      </a>
+    </div>
+
+    <!-- =========================================================
+         CONTEÚDO PRINCIPAL DO PROJETO
+    ========================================================== -->
+    <div id="projeto-detail-wrap" style="display:none;">
+
+      <div class="projeto-detail-main">
+
+        <!-- ── COLUNA PRINCIPAL ── -->
+        <article class="projeto-detail-content" aria-labelledby="projeto-titulo-main">
+
+          <!-- Cabeçalho -->
+          <header class="projeto-detail-header reveal">
+            <div class="projeto-detail-type-row">
+              <span id="projeto-status-badge" class="projeto-status-badge andamento">
+                <span class="projeto-status-dot"></span>
+                Em andamento
+              </span>
+              <span id="projeto-linha-badge" class="badge badge-verde">Ecologia da Paisagem</span>
+            </div>
+            <h1 class="projeto-detail-title" id="projeto-titulo-main">
+              Mapeamento da Cobertura Vegetal no Cerrado Maranhense (2021–2025)
+            </h1>
+            <div class="projeto-detail-linha">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              <span id="projeto-linha-texto">Linha: Ecologia da Paisagem e Mudanças no Uso do Solo</span>
+            </div>
+          </header>
+
+          <!-- Resumo -->
+          <section class="projeto-section reveal" aria-labelledby="resumo-heading">
+            <h2 class="projeto-section-title" id="resumo-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+              Resumo
+            </h2>
+            <div id="projeto-resumo">
+              <p>Monitoramento multitemporal da dinâmica de uso e cobertura do solo no Cerrado do Maranhão, com uso de imagens Sentinel-2 e análise de séries temporais para detecção de desmatamento e degradação florestal.</p>
+              <p>O projeto integra técnicas de sensoriamento remoto, geoprocessamento e análise estatística para produzir mapas de alta resolução e indicadores de fragmentação da paisagem, subsidiando políticas públicas de conservação e gestão territorial.</p>
+            </div>
+          </section>
+
+          <!-- Objetivos -->
+          <section class="projeto-section reveal" aria-labelledby="objetivos-heading">
+            <h2 class="projeto-section-title" id="objetivos-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+              </svg>
+              Objetivos
+            </h2>
+            <div class="projeto-objetivos-list" id="projeto-objetivos">
+              <div class="projeto-objetivo-item">
+                <span class="projeto-objetivo-marker">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>Mapear a cobertura vegetal e o uso do solo no Cerrado Maranhense com base em séries temporais de imagens Sentinel-2 (2015–2025).</span>
+              </div>
+              <div class="projeto-objetivo-item">
+                <span class="projeto-objetivo-marker">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>Quantificar as taxas de desmatamento e degradação florestal por município, identificando padrões espaciais e temporais de perda vegetal.</span>
+              </div>
+              <div class="projeto-objetivo-item">
+                <span class="projeto-objetivo-marker">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>Avaliar os impactos da fragmentação da paisagem sobre a conectividade dos remanescentes vegetais e os serviços ecossistêmicos associados.</span>
+              </div>
+              <div class="projeto-objetivo-item">
+                <span class="projeto-objetivo-marker">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>Disponibilizar bases cartográficas e indicadores ambientais para subsidiar políticas públicas de conservação e planejamento territorial.</span>
+              </div>
+              <div class="projeto-objetivo-item">
+                <span class="projeto-objetivo-marker">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>Produzir e publicar artigos científicos e atlas temáticos comunicando os resultados à comunidade acadêmica e à sociedade.</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Metodologia -->
+          <section class="projeto-section reveal" aria-labelledby="metodologia-heading">
+            <h2 class="projeto-section-title" id="metodologia-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>
+              </svg>
+              Metodologia
+            </h2>
+            <p id="projeto-metodologia">
+              A pesquisa adota uma abordagem geomática integrada, combinando classificação supervisionada de imagens multiespectrais e análise orientada a objetos (OBIA) para discriminação das classes de uso e cobertura. São utilizadas imagens do satélite Sentinel-2 com resolução espacial de 10m, processadas na plataforma Google Earth Engine.
+            </p>
+            <p>
+              A validação dos mapas é realizada por meio de campanhas de campo com coleta de pontos de controle e análise de fotointerpretação de imagens de alta resolução. As métricas de fragmentação são calculadas com o software FRAGSTATS, e a análise estatística multivariada é conduzida em ambiente R.
+            </p>
+            <div class="projeto-tags-wrap" id="projeto-metodos-tags">
+              <span class="projeto-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                Google Earth Engine
+              </span>
+              <span class="projeto-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Sentinel-2
+              </span>
+              <span class="projeto-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                QGIS / SIG
+              </span>
+              <span class="projeto-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                FRAGSTATS
+              </span>
+              <span class="projeto-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                R / Python
+              </span>
+              <span class="projeto-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+                OBIA
+              </span>
+            </div>
+          </section>
+
+          <!-- Área de Estudo -->
+          <section class="projeto-section reveal" aria-labelledby="area-heading">
+            <h2 class="projeto-section-title" id="area-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              Área de Estudo
+            </h2>
+            <p id="projeto-area">
+              O estudo abrange os 217 municípios do estado do Maranhão inseridos no bioma Cerrado, compreendendo uma área total de aproximadamente 212.000 km². A região é reconhecida pela alta biodiversidade e pelos intensos processos de conversão do uso do solo, com expansão da fronteira agrícola e pressão sobre remanescentes vegetais nativos.
+            </p>
+          </section>
+
+          <!-- Cronograma -->
+          <section class="projeto-section reveal" aria-labelledby="cronograma-heading">
+            <h2 class="projeto-section-title" id="cronograma-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              Cronograma e Etapas
+            </h2>
+            <div class="projeto-timeline" id="projeto-cronograma">
+              <div class="projeto-etapa concluida">
+                <div class="projeto-etapa-dot">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="projeto-etapa-body">
+                  <div class="projeto-etapa-periodo">2021 — 2022</div>
+                  <div class="projeto-etapa-titulo">Levantamento bibliográfico e preparação dos dados</div>
+                  <div class="projeto-etapa-desc">Revisão sistemática da literatura, aquisição das imagens de satélite, definição do esquema de classificação e preparação das amostras de treinamento.</div>
+                </div>
+              </div>
+              <div class="projeto-etapa concluida">
+                <div class="projeto-etapa-dot">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="projeto-etapa-body">
+                  <div class="projeto-etapa-periodo">2022 — 2023</div>
+                  <div class="projeto-etapa-titulo">Mapeamento e validação de campo</div>
+                  <div class="projeto-etapa-desc">Classificação das imagens, geração dos mapas de uso e cobertura, campanha de campo para coleta de pontos de controle e validação da acurácia.</div>
+                </div>
+              </div>
+              <div class="projeto-etapa atual">
+                <div class="projeto-etapa-dot">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
+                </div>
+                <div class="projeto-etapa-body">
+                  <div class="projeto-etapa-periodo">2023 — 2024 · Atual</div>
+                  <div class="projeto-etapa-titulo">Análise da fragmentação e séries temporais</div>
+                  <div class="projeto-etapa-desc">Cálculo das métricas de paisagem, análise das séries temporais de desmatamento e modelagem estatística dos padrões de perda de cobertura vegetal.</div>
+                </div>
+              </div>
+              <div class="projeto-etapa">
+                <div class="projeto-etapa-dot">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="6"/></svg>
+                </div>
+                <div class="projeto-etapa-body">
+                  <div class="projeto-etapa-periodo">2024 — 2025</div>
+                  <div class="projeto-etapa-titulo">Publicação e disponibilização dos resultados</div>
+                  <div class="projeto-etapa-desc">Elaboração de artigos científicos, atlas temático e relatório técnico para órgãos governamentais. Disponibilização dos dados em repositório aberto.</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Equipe -->
+          <section class="projeto-section reveal" aria-labelledby="equipe-heading">
+            <h2 class="projeto-section-title" id="equipe-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              Equipe de Pesquisa
+            </h2>
+            <div class="projeto-equipe-grid" id="projeto-equipe">
+              <div class="projeto-membro-card">
+                <div class="projeto-membro-avatar">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="projeto-membro-info">
+                  <div class="projeto-membro-name">Prof. Dr. José da Silva</div>
+                  <div class="projeto-membro-role">Coordenador</div>
+                </div>
+              </div>
+              <div class="projeto-membro-card">
+                <div class="projeto-membro-avatar">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="projeto-membro-info">
+                  <div class="projeto-membro-name">Profa. Dra. Ana Costa</div>
+                  <div class="projeto-membro-role">Pesquisadora</div>
+                </div>
+              </div>
+              <div class="projeto-membro-card">
+                <div class="projeto-membro-avatar">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="projeto-membro-info">
+                  <div class="projeto-membro-name">Carlos Mendes</div>
+                  <div class="projeto-membro-role">Doutorando</div>
+                </div>
+              </div>
+              <div class="projeto-membro-card">
+                <div class="projeto-membro-avatar">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="projeto-membro-info">
+                  <div class="projeto-membro-name">Mariana Lima</div>
+                  <div class="projeto-membro-role">Mestranda</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Financiamento -->
+          <section class="projeto-section reveal" aria-labelledby="financiamento-heading">
+            <h2 class="projeto-section-title" id="financiamento-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+              Financiamento e Parcerias
+            </h2>
+            <div class="projeto-financ-grid" id="projeto-financiamento">
+              <div class="projeto-financ-item">
+                <div class="projeto-financ-logo">CNPq</div>
+                <div class="projeto-financ-desc">Fomento à pesquisa</div>
+                <div class="projeto-financ-valor">Edital Universal</div>
+              </div>
+              <div class="projeto-financ-item">
+                <div class="projeto-financ-logo">UFMA</div>
+                <div class="projeto-financ-desc">Infraestrutura</div>
+                <div class="projeto-financ-valor">Apoio institucional</div>
+              </div>
+              <div class="projeto-financ-item">
+                <div class="projeto-financ-logo">SEMA</div>
+                <div class="projeto-financ-desc">Parceria estadual</div>
+                <div class="projeto-financ-valor">Convênio de dados</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Palavras-chave -->
+          <section class="projeto-section reveal" aria-labelledby="keywords-heading">
+            <h2 class="projeto-section-title" id="keywords-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                <line x1="7" y1="7" x2="7.01" y2="7"/>
+              </svg>
+              Palavras-chave
+            </h2>
+            <div class="projeto-tags-wrap" id="projeto-keywords">
+              <a href="pesquisas.html?q=cerrado" class="projeto-tag">Cerrado</a>
+              <a href="pesquisas.html?q=sensoriamento" class="projeto-tag">Sensoriamento Remoto</a>
+              <a href="pesquisas.html?q=desmatamento" class="projeto-tag">Desmatamento</a>
+              <a href="pesquisas.html?q=cobertura-vegetal" class="projeto-tag">Cobertura Vegetal</a>
+              <a href="pesquisas.html?q=maranhao" class="projeto-tag">Maranhão</a>
+              <a href="pesquisas.html?q=fragmentacao" class="projeto-tag">Fragmentação da Paisagem</a>
+              <a href="pesquisas.html?q=series-temporais" class="projeto-tag">Séries Temporais</a>
+              <a href="pesquisas.html?q=sig" class="projeto-tag">SIG</a>
+            </div>
+          </section>
+
+          <!-- Publicações vinculadas -->
+          <section class="projeto-section reveal" aria-labelledby="publicacoes-heading">
+            <h2 class="projeto-section-title" id="publicacoes-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+              Publicações Vinculadas
+            </h2>
+            <div class="projeto-pubs-list" id="projeto-publicacoes">
+
+              <div class="projeto-pub-item">
+                <div class="projeto-pub-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="projeto-pub-body">
+                  <div class="projeto-pub-title">Dinâmica do desmatamento no Cerrado Maranhense: análise multitemporal 2015–2023</div>
+                  <div class="projeto-pub-meta">Autores do NEPA · Revista Brasileira de Cartografia · 2023</div>
+                </div>
+                <a href="publicacao.html?id=1" class="projeto-pub-link" aria-label="Ver publicação">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+              </div>
+
+              <div class="projeto-pub-item">
+                <div class="projeto-pub-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="projeto-pub-body">
+                  <div class="projeto-pub-title">Fragmentação da paisagem e conectividade de remanescentes de Cerrado no Maranhão</div>
+                  <div class="projeto-pub-meta">Autores do NEPA · Acta Botanica Brasilica · 2022</div>
+                </div>
+                <a href="publicacao.html?id=2" class="projeto-pub-link" aria-label="Ver publicação">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+              </div>
+
+              <div class="projeto-pub-item">
+                <div class="projeto-pub-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div class="projeto-pub-body">
+                  <div class="projeto-pub-title">Atlas do Cerrado Maranhense: mapeamento, ameaças e perspectivas de conservação</div>
+                  <div class="projeto-pub-meta">NEPA/UFMA · Edições UFMA · 2024 (em preparação)</div>
+                </div>
+                <a href="biblioteca.html" class="projeto-pub-link" aria-label="Ver na biblioteca">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Resultados Parciais -->
+          <section class="projeto-section reveal" aria-labelledby="resultados-heading">
+            <h2 class="projeto-section-title" id="resultados-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+              Resultados Parciais
+            </h2>
+            <p id="projeto-resultados">
+              Os resultados preliminares indicam uma perda de 18,4% da cobertura vegetal nativa no Cerrado Maranhense entre 2015 e 2023, com aceleração das taxas de desmatamento a partir de 2020. Os municípios do sul e sudoeste do estado apresentam os maiores índices de supressão, associados à expansão da soja e da pecuária extensiva.
+            </p>
+            <p>
+              A análise de métricas de paisagem revelou aumento significativo da fragmentação e redução da conectividade estrutural dos remanescentes, com potenciais implicações para a manutenção dos corredores ecológicos e da biodiversidade regional.
+            </p>
+          </section>
+
+          <!-- Botão de voltar -->
+          <a href="pesquisas.html" class="btn-ghost" style="margin-top:1rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+            Voltar para Pesquisas
+          </a>
+
+        </article>
+
+        <!-- ── SIDEBAR ── -->
+        <aside class="projeto-sidebar-card" aria-label="Informações do projeto">
+
+          <!-- Cabeçalho da sidebar -->
+          <div class="sidebar-header">
+            <h3>Informações do Projeto</h3>
+            <p>Resumo executivo</p>
+          </div>
+
+          <!-- Progresso -->
+          <div class="sidebar-progress-wrap">
+            <div class="sidebar-progress-label">
+              <span>Progresso geral</span>
+              <span id="projeto-progresso-valor">65%</span>
+            </div>
+            <div class="sidebar-progress-bar">
+              <div class="sidebar-progress-fill" id="projeto-progresso-fill" style="width:65%;"></div>
+            </div>
+          </div>
+
+          <!-- Metadados -->
+          <div class="sidebar-meta-list" id="sidebar-meta">
+
+            <div class="sidebar-meta-item">
+              <div class="sidebar-meta-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
+              <div>
+                <span class="sidebar-meta-label">Período</span>
+                <div class="sidebar-meta-value" id="sidebar-periodo">2021 – 2025</div>
+              </div>
+            </div>
+
+            <div class="sidebar-meta-item">
+              <div class="sidebar-meta-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+                </svg>
+              </div>
+              <div>
+                <span class="sidebar-meta-label">Financiador</span>
+                <div class="sidebar-meta-value" id="sidebar-financiador">CNPq</div>
+              </div>
+            </div>
+
+            <div class="sidebar-meta-item">
+              <div class="sidebar-meta-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div>
+                <span class="sidebar-meta-label">Pesquisadores</span>
+                <div class="sidebar-meta-value" id="sidebar-pesquisadores">4 pesquisadores</div>
+              </div>
+            </div>
+
+            <div class="sidebar-meta-item">
+              <div class="sidebar-meta-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="sidebar-meta-label">Publicações</span>
+                <div class="sidebar-meta-value" id="sidebar-publicacoes">2 artigos</div>
+              </div>
+            </div>
+
+            <div class="sidebar-meta-item">
+              <div class="sidebar-meta-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="sidebar-meta-label">Linha de pesquisa</span>
+                <div class="sidebar-meta-value" id="sidebar-linha">Ecologia da Paisagem</div>
+              </div>
+            </div>
+
+            <div class="sidebar-meta-item">
+              <div class="sidebar-meta-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <span class="sidebar-meta-label">Área de estudo</span>
+                <div class="sidebar-meta-value" id="sidebar-area">Maranhão, Brasil</div>
+              </div>
+            </div>
+
+            <div class="sidebar-meta-item">
+              <div class="sidebar-meta-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <span class="sidebar-meta-label">Situação</span>
+                <div class="sidebar-meta-value" id="sidebar-situacao">Em andamento</div>
+              </div>
+            </div>
+
+            <div class="sidebar-meta-item" id="sidebar-contato-wrap">
+              <div class="sidebar-meta-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <span class="sidebar-meta-label">Contato</span>
+                <div class="sidebar-meta-value">
+                  <a href="mailto:contato.nepa@ufma.br" id="sidebar-email">contato.nepa@ufma.br</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Ações -->
+          <div class="sidebar-actions">
+            <a href="mailto:contato.nepa@ufma.br" class="sidebar-btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Fale com o projeto
+            </a>
+            <a href="biblioteca.html" class="sidebar-btn-secondary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+              Ver publicações
+            </a>
+            <a href="pesquisas.html" class="sidebar-btn-secondary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              Outros projetos
+            </a>
+          </div>
+
+        </aside>
+
+      </div><!-- /projeto-detail-main -->
+
+      <!-- =========================================================
+           PROJETOS RELACIONADOS
+      ========================================================== -->
+      <section class="related-projects-section content-section section-bg" id="related-section" aria-labelledby="related-heading" style="display:none;">
+        <span class="section-label">Continue explorando</span>
+        <h2 id="related-heading">Projetos Relacionados</h2>
+        <div class="divider" style="margin-bottom:0;"></div>
+        <div class="related-projects-grid pesq-projetos-grid" id="related-grid"></div>
+      </section>
+
+    </div><!-- /projeto-detail-wrap -->
+
+  </main>
+
+  <!-- =========================================================
+       RODAPÉ
+  ========================================================== -->
+  <footer class="footer-section" aria-label="Rodapé e informações de contato">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="./img/NOVA_LOGO_NEPA.png" alt="Logo NEPA"
+          onerror="this.src='https://placehold.co/120x38/607537/FFFFFF?text=NEPA';" loading="lazy" />
+        <p>Núcleo de Estudos e Pesquisas Ambientais — Universidade Federal do Maranhão. Ciência, extensão e compromisso com o meio ambiente.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Página inicial</a></li>
+          <li><a href="index.html#about">Sobre o NEPA</a></li>
+          <li><a href="biblioteca.html">Biblioteca digital</a></li>
+          <li><a href="pesquisas.html">Pesquisas</a></li>
+          <li><a href="membros.html">Membros</a></li>
+          <li><a href="index.html#eventos">Eventos</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <p>Av. dos Portugueses, 1966 — Vila Bacanga, São Luís, MA · CEP 65080-805</p>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:contato.nepa@ufma.br">contato.nepa@ufma.br</a>
+        </div>
+      </div>
+      <div class="footer-map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.035579462823!2d-44.3079216!3d-2.5412499999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f68f5c3e884175%3A0x7d73934f71a41f6e!2sUniversidade%20Federal%20do%20Maranh%C3%A3o!5e0!3m2!1spt-BR!2sbr!4v1729392510165!5m2!1spt-BR!2sbr"
+          title="Mapa da localização da UFMA"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 NEPA — Núcleo de Estudos e Pesquisas Ambientais · UFMA. Todos os direitos reservados.</p>
+      <p style="font-size:1.2rem; opacity:0.5;">Desenvolvido com ♥ pela equipe NEPA</p>
+    </div>
+  </footer>
+
+  <!-- Botão voltar ao topo -->
+  <button id="back-to-top" aria-label="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+
+  <script>
+    // ============================================================
+    // TEMA
+    // ============================================================
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const iconSun  = document.getElementById('iconSun');
+    const iconMoon = document.getElementById('iconMoon');
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('nepa-theme', t);
+      iconSun.style.display  = t === 'dark' ? 'none' : 'block';
+      iconMoon.style.display = t === 'dark' ? 'block' : 'none';
+    }
+    applyTheme(localStorage.getItem('nepa-theme') || 'light');
+    themeToggle.addEventListener('click', () => {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    // ============================================================
+    // MENU MOBILE
+    // ============================================================
+    const menuBtn = document.getElementById('menu-btn');
+    const navbar  = document.getElementById('navbar');
+    menuBtn.addEventListener('click', () => {
+      const open = navbar.classList.toggle('active');
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+
+    // ============================================================
+    // HEADER SCROLL
+    // ============================================================
+    const header = document.getElementById('siteHeader');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const st = window.scrollY;
+      header.classList.toggle('header--hidden', st > lastScroll && st > 100);
+      header.classList.toggle('scrolled', st > 60);
+      if (navbar.classList.contains('active')) navbar.classList.remove('active');
+      lastScroll = st <= 0 ? 0 : st;
+    }, { passive: true });
+
+    // ============================================================
+    // VOLTAR AO TOPO
+    // ============================================================
+    const btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 400); }, { passive: true });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ============================================================
+    // REVEAL ON SCROLL
+    // ============================================================
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+    // ============================================================
+    // ANIMAÇÃO DA BARRA DE PROGRESSO
+    // ============================================================
+    const progressFill = document.getElementById('projeto-progresso-fill');
+    if (progressFill) {
+      const progressObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const targetW = progressFill.style.width;
+            progressFill.style.width = '0%';
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => { progressFill.style.width = targetW; });
+            });
+            progressObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      progressObs.observe(progressFill);
+    }
+
+    // ============================================================
+    // INICIALIZAÇÃO — carrega dados do projeto via URL ?id=
+    // Substitua este bloco pela sua lógica de carregamento de dados
+    // (ex: busca em JSON, planilha Excel, ou banco de dados)
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      const params    = new URLSearchParams(window.location.search);
+      const projetoId = params.get('id');
+
+      // Simula carregamento
+      setTimeout(() => {
+        document.getElementById('loading-state').style.display = 'none';
+
+        // Se não houver ID, mostra a página com dados de exemplo
+        // Em produção: buscar dados do projeto com base no projetoId
+        if (!projetoId) {
+          // Sem ID: exibe o conteúdo de demonstração que já está no HTML
+          document.getElementById('projeto-detail-wrap').style.display = 'block';
+          document.getElementById('breadcrumb-title').textContent = 'Mapeamento da Cobertura Vegetal no Cerrado';
+
+          // Mostra projetos relacionados de exemplo
+          renderRelatedExample();
+        } else {
+          // COM ID: aqui você integraria com sua fonte de dados
+          // Exemplo: buscar do mesmo JSON/Excel usado pela pesquisas.html
+          // Por enquanto exibe o conteúdo de demonstração
+          document.getElementById('projeto-detail-wrap').style.display = 'block';
+          document.getElementById('breadcrumb-title').textContent = 'Projeto #' + projetoId;
+          renderRelatedExample();
+        }
+
+        // Ativa reveals após mostrar conteúdo
+        document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+      }, 600);
+    });
+
+    // ============================================================
+    // PROJETOS RELACIONADOS (exemplo)
+    // ============================================================
+    function renderRelatedExample() {
+      const relatedSection = document.getElementById('related-section');
+      const relatedGrid    = document.getElementById('related-grid');
+      relatedSection.style.display = 'block';
+
+      const projetosExemplo = [
+        {
+          titulo: 'Vulnerabilidade Socioambiental em São Luís: Índice Integrado',
+          descricao: 'Construção de um índice multidimensional de vulnerabilidade socioambiental para os bairros de São Luís, articulando dados censitários, ambientais e de saúde.',
+          periodo: '2022 – 2025',
+          financiador: 'FAPEMA',
+          pesquisadores: '6 pesquisadores',
+          status: 'andamento',
+          statusLabel: 'Em andamento',
+          id: 2
+        },
+        {
+          titulo: 'Territórios Quilombolas e Pressões Fundiárias no Maranhão',
+          descricao: 'Análise geoespacial e etnográfica das dinâmicas de conflitos fundiários sobre os territórios quilombolas maranhenses, com ênfase nos processos de titulação.',
+          periodo: '2023 – 2025',
+          financiador: 'CAPES/PNPD',
+          pesquisadores: '5 pesquisadores',
+          status: 'andamento',
+          statusLabel: 'Em andamento',
+          id: 3
+        },
+        {
+          titulo: 'Desmatamento e Governança Ambiental na Amazônia Legal',
+          descricao: 'Análise crítica das políticas de controle do desmatamento na Amazônia Legal entre 2008 e 2020, com avaliação dos instrumentos de governança e efetividade dos órgãos de fiscalização.',
+          periodo: '2017 – 2020',
+          financiador: 'CNPq/Universal',
+          pesquisadores: '4 artigos',
+          status: 'concluido',
+          statusLabel: 'Concluído',
+          id: 4
+        }
+      ];
+
+      projetosExemplo.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'pesq-projeto-card reveal';
+        card.innerHTML = `
+          <div class="pesq-projeto-header">
+            <h3>${p.titulo}</h3>
+            <span class="badge ${p.status === 'andamento' ? 'badge-verde' : 'badge-azul'}">${p.statusLabel}</span>
+          </div>
+          <p>${p.descricao}</p>
+          <div class="pesq-projeto-meta">
+            <span class="pesq-meta-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              ${p.periodo}
+            </span>
+            <span class="pesq-meta-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              ${p.financiador}
+            </span>
+            <span class="pesq-meta-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              ${p.pesquisadores}
+            </span>
+            <a href="pesquisa-detalhe.html?id=${p.id}" class="btn-secondary" style="margin-left:auto;">
+              Ver detalhes
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>`;
+        relatedGrid.appendChild(card);
+      });
+
+      // Observar novos elements para reveal
+      relatedGrid.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+    }
+  </script>
+</body>
+</html>
